@@ -9,7 +9,7 @@ require 'optparse'
 # define command-line options
 options = {}
 OptionParser.new do |opts|
-  opts.banner = "Usage: ./wikt2dsl.rb [options] [SOURCE_DICTIONARY]"
+  opts.banner = "Usage: ./wikt2dsl_twoway.rb [options] [SOURCE_DICTIONARY]"
 
   opts.on("-d", "--dump", "Dump dsl format text to standard output rather than output file") { options[:dump] = true }
   opts.on("-t", "--test", "Test for common formatting errors in source file") { options[:test] = true }

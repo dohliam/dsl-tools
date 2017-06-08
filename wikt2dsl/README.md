@@ -1,5 +1,10 @@
 Scripts to convert the bilingual Wiktionary dictionaries created by [User:Matthias_Buchmeier](http://en.wiktionary.org/wiki/User:Matthias_Buchmeier) into compressed DSL-format. Scripts for extracting the source dictionaries, as well as versions of the dictionaries in a number of other formats are available on the [main project page](http://en.wiktionary.org/wiki/User:Matthias_Buchmeier) on Wiktionary.
 
+# Prerequisites
+
+* dictzip should be install
+* SOURCE_DICTIONARY containing a first line in the form: "# Language1 :: Language2 dictionary " (watch out for the space)
+
 # Usage
 
 Basic usage is to run either `wikt2dsl.rb` or `wikt2dsl_twoway.rb`, specifying the source dictionary as an argument:

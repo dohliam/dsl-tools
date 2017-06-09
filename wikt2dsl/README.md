@@ -1,9 +1,9 @@
 Scripts to convert the bilingual Wiktionary dictionaries created by [User:Matthias_Buchmeier](http://en.wiktionary.org/wiki/User:Matthias_Buchmeier) into compressed DSL-format. Scripts for extracting the source dictionaries, as well as versions of the dictionaries in a number of other formats are available on the [main project page](http://en.wiktionary.org/wiki/User:Matthias_Buchmeier) on Wiktionary.
 
-# Prerequisites
+# Requirements
 
-* dictzip should be install
-* SOURCE_DICTIONARY containing a first line in the form: "# Language1 :: Language2 dictionary " (watch out for the space)
+* The program `dictzip` should be installed
+* A _source dictionary_ containing a first line in the form: `# Language1 :: Language2 dictionary ` (note the trailing space)
 
 # Usage
 

@@ -86,7 +86,9 @@ source_dict.each do |line|
     elsif line.match(/\(/)
       headword = line.match(/^(.*?) \(/)[1]
     end
-    entry = line.gsub(/(\[|\])/, "@@@\\1").gsub(/@@@/, "\\").gsub(/^#{headword}/, "[b][c darkblue]~[/c][/b]").gsub(/\} \/(.*?)\//, "} [c gray]/\\1/[/c]").gsub(/\{(.*?)\}/, "[p]<\\1>[/p]").gsub(/SEE: (.*) ::/, "\n\tSEE: <<\\1>>").gsub(/ ::\s+(.*)$/, "\n\t[m1]\\1[/m]").gsub(/(\[\/p\] )(\(.*\))/, "\\1[i]\\2[/i]").gsub(/\{|\}/, "")
+    # headwords with special characters produce programm exceptions in the regexps below and have to be removed or escaped:
+    headword2 = headword.gsub(/[\+\?\.\*\^\$\(\)\[\]\{\}\|\\]/, ".")
+    entry = line.gsub(/(\[|\])/, "@@@\\1").gsub(/@@@/, "\\").gsub(/^#{headword2}/, "[b][c darkblue]~[/c][/b]").gsub(/\} \/(.*?)\//, "} [c gray]/\\1/[/c]").gsub(/\{(.*?)\}/, "[p]<\\1>[/p]").gsub(/SEE: (.*) ::/, "\n\tSEE: <<\\1>>").gsub(/ ::\s+(.*)$/, "\n\t[m1]\\1[/m]").gsub(/(\[\/p\] )(\(.*\))/, "\\1[i]\\2[/i]").gsub(/\{|\}/, "")
     dict_content << headword + "\n\t" + entry + "\n"
   end
 end

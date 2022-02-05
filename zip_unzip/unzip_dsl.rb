@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 
-# uncompress zipped dsl.dz format dictionary files
-# and convert them to UTF-8 for viewing or editing
+# decompress zipped dsl.dz format dictionary files
+# and convert them to UTF-8 + LF line-end for viewing or editing
 
 def unzip_dictfile(dict)
   ext = File.extname(dict)
@@ -11,7 +11,7 @@ def unzip_dictfile(dict)
   if ext == ".dz"
     `dictunzip #{dict}`
     dict_content = File.open(dsl_loc, "rb:UTF-16LE").read
-    File.open(dsl_loc, "w", encoding: "UTF-8") {|t| t << dict_content }
+    File.open(dsl_loc, "w", encoding: "UTF-8") {|t| t << dict_content.gsub("\r\n", "\n") }
     puts "  Processed #{basename}"
   end
 end

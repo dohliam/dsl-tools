@@ -37,8 +37,8 @@ tar_extract.each do |entry|
     dict_name = entry.full_name.gsub(/.*\//, "").gsub(/_wiki\.txt/, "")
     index_lang = dict_name.gsub(/\-.*/, "")
     contents_lang = dict_name.gsub(/.*\-/, "")
-    header_stuff = "#NAME \"#{dict_name} Wikidict\"\n#INDEX_LANGUAGE \"#{lang_name[index_lang]}\"\n#CONTENTS_LANGUAGE \"#{lang_name[contents_lang]}\"\n\n"
-    puts "Your dictionary header looks like this:\n\n"
+    header_stuff = "#NAME \"#{dict_name} Wikidict\"\r\n#INDEX_LANGUAGE \"#{lang_name[index_lang]}\"\r\n#CONTENTS_LANGUAGE \"#{lang_name[contents_lang]}\"\r\n\r\n"
+    puts "Your dictionary header looks like this:\r\n\r\n"
     puts header_stuff
     puts "Please wait. Processing dictionary data..."
     dict_content = ""
@@ -49,7 +49,7 @@ tar_extract.each do |entry|
     data.each_line do |line|
       tab1,tab2 = line.chomp.split("\t")
       if !namespace[dir].match(tab2) && !namespace["en"].match(tab2)
-        dict_content << tab1 + "\n" + tab2 + "\n\t[m1]" + tab1 + "[/m]\n\t[m1]" + tab2 + "[/m]\n\n"
+        dict_content << tab1 + "\r\n" + tab2 + "\r\n\t[m1]" + tab1 + "[/m]\r\n\t[m1]" + tab2 + "[/m]\r\n\r\n"
       end
     end
     f << header_stuff

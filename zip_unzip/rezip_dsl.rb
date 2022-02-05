@@ -1,6 +1,7 @@
 #!/usr/bin/ruby
 
-# convert UTF-8 encoded dsl dictionary files to UTF-16
+# convert UTF-8 encoded dsl dictionary files
+# to UTF-16 + CRLF line-end
 # and compress with dictzip to dsl.dz format
 
 def rezip_dictfile(dict)
@@ -10,7 +11,7 @@ def rezip_dictfile(dict)
     dict_content = File.read(dict)
     File.rename(dict, dict + ".bak")
     File.open(dict, 'wt', encoding: 'UTF-16LE') do |dsl|
-      dsl << dict_content
+      dsl << dict_content.gsub("\n", "\r\n")
     end
     `dictzip #{dict}`
     puts "  Processed #{basename}"

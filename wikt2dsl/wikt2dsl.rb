@@ -42,7 +42,7 @@ index_lang = first_line.match(re)[1]
 cont_lang = first_line.match(re)[2]
 dict_name = "Wiktionary #{index_lang}-#{cont_lang}"
 
-header_info = "#NAME \"#{dict_name}\"\n#INDEX_LANGUAGE \"#{index_lang}\"\n#CONTENTS_LANGUAGE \"#{cont_lang}\"\n\n"
+header_info = "#NAME \"#{dict_name}\"\r\n#INDEX_LANGUAGE \"#{index_lang}\"\r\n#CONTENTS_LANGUAGE \"#{cont_lang}\"\r\n\r\n"
 
 if options[:dump] != true && options[:test] != true
   puts "The Wiktionary dictionary header looks like this:\n\n"
@@ -89,7 +89,7 @@ source_dict.each do |line|
     # headwords with special characters produce programm exceptions in the regexps below and have to be removed or escaped:
     headword2 = headword.gsub(/[\+\?\.\*\^\$\(\)\[\]\{\}\|\\]/, ".")
     entry = line.gsub(/(\[|\])/, "@@@\\1").gsub(/@@@/, "\\").gsub(/^#{headword2}/, "[b][c darkblue]~[/c][/b]").gsub(/\} \/(.*?)\//, "} [c gray]/\\1/[/c]").gsub(/\{(.*?)\}/, "[p]<\\1>[/p]").gsub(/SEE: (.*) ::/, "\n\tSEE: <<\\1>>").gsub(/ ::\s+(.*)$/, "\n\t[m1]\\1[/m]").gsub(/(\[\/p\] )(\(.*\))/, "\\1[i]\\2[/i]").gsub(/\{|\}/, "")
-    dict_content << headword + "\n\t" + entry + "\n"
+    dict_content << headword + "\r\n\t" + entry + "\r\n"
   end
 end
 

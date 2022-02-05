@@ -42,8 +42,8 @@ tar_extract.each do |entry|
   unless entry.directory? == true
     dict_name = entry.full_name.gsub(/.*\//, "").gsub(/_wiki\.txt/, "")
     index_lang = dict_name.gsub(/\-.*/, "")
-    header_stuff = "#NAME \"#{dict_name} Wiki Wordlist\"\n#INDEX_LANGUAGE \"#{lang_name[index_lang]}\"\n#CONTENTS_LANGUAGE \"#{lang_name[index_lang]}\"\n\n"
-    puts "Your dictionary header looks like this:\n\n"
+    header_stuff = "#NAME \"#{dict_name} Wiki Wordlist\"\r\n#INDEX_LANGUAGE \"#{lang_name[index_lang]}\"\r\n#CONTENTS_LANGUAGE \"#{lang_name[index_lang]}\"\r\n\r\n"
+    puts "Your dictionary header looks like this:\r\n\r\n"
     puts header_stuff
     puts "Please wait. Processing dictionary data..."
     dict_content = ""
@@ -55,7 +55,7 @@ tar_extract.each do |entry|
       tab = line.chomp
       regex = /^[^\s]+:(?!\s)/
       if !regex.match(tab)
-        dict_content << tab + "\n\t[m1]" + tab + "[/m]\n\n"
+        dict_content << tab + "\r\n\t[m1]" + tab + "[/m]\r\n\r\n"
       end
     end
     f << header_stuff

@@ -42,7 +42,7 @@ index_lang = first_line.match(re)[1]
 cont_lang = first_line.match(re)[2]
 dict_name = "Wiktionary #{index_lang}-#{cont_lang}"
 
-header_info = "#NAME \"#{dict_name}\"\n#INDEX_LANGUAGE \"#{index_lang}\"\n#CONTENTS_LANGUAGE \"#{cont_lang}\"\n\n"
+header_info = "#NAME \"#{dict_name}\"\r\n#INDEX_LANGUAGE \"#{index_lang}\"\r\n#CONTENTS_LANGUAGE \"#{cont_lang}\"\r\n\r\n"
 
 if options[:dump] != true && options[:test] != true
   puts "The Wiktionary dictionary header looks like this:\n\n"
@@ -95,7 +95,7 @@ source_dict.each do |line|
     else
       trans = ""
     end
-    dict_content << headword + "\n" + trans + "\t" + entry + "\n"
+    dict_content << headword + "\r\n" + trans + "\t" + entry + "\r\n"
   end
 end
 

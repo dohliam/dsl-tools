@@ -45,7 +45,7 @@ def format_dictionary(tab_data)
 
       tab1,tab2 = line.chomp.split("\t")
       tab2_format = tab2.gsub(tab1, "[i]~[/i]")
-      dict_entry = tab1 + "\n" + tab2 + "\n\t[m1][b]" + tab1 + "[/b][/m]\n\t[m1]" + tab2_format + "[/m]\n\n"
+      dict_entry = tab1 + "\r\n" + tab2 + "\r\n\t[m1][b]" + tab1 + "[/b][/m]\r\n\t[m1]" + tab2_format + "[/m]\r\n\r\n"
       dict_content << dict_entry
     end
   end

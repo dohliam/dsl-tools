@@ -27,11 +27,11 @@ def format_dictionary(sentences_file, options)
     end
     lang1_array.each do |keyword|
       if !json.include?(keyword) && !keyword.match(/^[\s\n]*$/)
-        dict_content << keyword + "\n"
+        dict_content << keyword + "\r\n"
       end
     end
-    dict_content << "\t" + lang1 + "\n"
-    dict_content << "\t" + lang2 + "\n\n"
+    dict_content << "\t" + lang1 + "\r\n"
+    dict_content << "\t" + lang2 + "\r\n\r\n"
   end
   dict_content
 end

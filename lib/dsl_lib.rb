@@ -6,7 +6,7 @@ def save_dsl(dsl_name, header_stuff, dict_content)
 end
 
 def format_header(dict_name, index_lang, contents_lang)
-  "#NAME \"#{dict_name}\"\n#INDEX_LANGUAGE \"#{index_lang}\"\n#CONTENTS_LANGUAGE \"#{contents_lang}\"\n\n"
+  "#NAME \"#{dict_name}\"\r\n#INDEX_LANGUAGE \"#{index_lang}\"\r\n#CONTENTS_LANGUAGE \"#{contents_lang}\"\r\n\r\n"
 end
 
 def get_header(options)
